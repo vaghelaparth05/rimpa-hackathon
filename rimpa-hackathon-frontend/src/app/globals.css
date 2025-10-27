@@ -1,1 +1,4 @@
 @import "tailwindcss";
+.background-white-important { 
+    background-color: white !important; 
+}
