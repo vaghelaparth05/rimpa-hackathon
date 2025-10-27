@@ -1,65 +1,86 @@
-import Image from "next/image";
+import React from 'react'
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
+import Image from 'next/image'
+import { BookOpen } from 'lucide-react'
+import { cn } from '@/lib/utils'
+import Navbar from '@/components/Navbar'
 
-export default function Home() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
-  );
+export default function HeroSection() {
+    return (
+      <>
+        <Navbar />
+        <section className="py-20">
+            <div className="relative z-10 mx-auto w-full max-w-2xl px-6 lg:px-0">
+                <div className="relative text-center">
+                    <MistKitLogo className="mx-auto" />
+                    <h1 className="mx-auto mt-16 border-none max-w-xl text-balance text-5xl font-medium">Work Smart. <br/>Help the Planet.</h1>
+
+                    <p className="text-muted-foreground mx-auto mb-6 mt-4 text-balance text-xl">Do your digital tasks when clean energy is high and reduce CO₂ at the same time.</p>
+
+                    <div className="flex flex-col items-center gap-2 *:w-full sm:flex-row sm:justify-center sm:*:w-auto">
+                        <Button
+                            asChild
+                            variant="default">
+                            <Link href="#link">
+                                <span className="text-nowrap bg-black px-5 py-2 text-white rounded-3xl">Green Upload</span>
+                            </Link>
+                        </Button>
+                        <Button
+                            asChild
+                            variant="ghost">
+                            <Link href="#link">
+                                <span className="text-nowrap">View Demo</span>
+                            </Link>
+                        </Button>
+                    </div>
+                </div>
+
+                <div className="relative mt-12 overflow-hidden rounded-3xl bg-black/10 md:mt-16">
+                    <img
+                        src="https://images.unsplash.com/photo-1547623641-d2c56c03e2a7?q=80&w=3087&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                        alt=""
+                        className="absolute inset-0 size-full object-cover"
+                    />
+
+                    <div className="bg-background rounded-(--radius) relative m-4 overflow-hidden  border-transparent shadow-xl shadow-black/15  sm:m-8 md:m-12">
+                        <Image
+                            src="/dashboard copy.png"
+                            alt="Our dashboard!"
+                            width="2880"
+                            height="1842"
+                            className="object-top-left rounded-2xl size-full object-cover"
+                        />
+                    </div>
+                </div>
+
+                <div className="mt-8 flex flex-wrap items-center gap-4">
+                    <p className="text-muted-foreground text-center">Trusted by teams at :</p>
+                    <div className="flex flex-wrap items-center justify-center gap-8">
+                        <div className="flex">
+                            <img
+                                className="mx-auto h-10 w-fit"
+                                src="https://www.rimpa.com.au/assets/img/logo.svg"
+                                alt="RMIPA"
+                                height="20"
+                                width="auto"
+                            />
+                        </div>
+
+                       
+                    </div>
+                </div>
+            </div>
+        </section>
+      </>
+    )
 }
+
+const MistKitLogo = ({ className }: { className?: string }) => (
+    <div
+        aria-hidden
+        className={cn('border-background bg-linear-to-b  relative flex size-9 translate-y-0.5 items-center justify-center rounded-lg border-white from-green-200 to-green-400 shadow-lg shadow-black/20 ring-1 ring-black/10', className)}>
+        <Image src="/facetime.png" alt="logo" width={36} height={36} />
+        <div className="z-1 h-4.5 absolute inset-2 m-auto w-px translate-y-px rounded-full bg-black/10"></div>
+    </div>
+)
