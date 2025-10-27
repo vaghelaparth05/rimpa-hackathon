@@ -5,6 +5,7 @@ import Image from 'next/image'
 import { BookOpen } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import Navbar from '@/components/Navbar'
+import FeaturesSection from '@/components/FeaturesSection'
 
 export default function HeroSection() {
     return (
@@ -72,6 +73,9 @@ export default function HeroSection() {
                 </div>
             </div>
         </section>
+
+        <FeaturesSection/>
+
       </>
     )
 }
